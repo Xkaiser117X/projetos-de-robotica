@@ -43,18 +43,95 @@
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVyiPfCaJdc5YvfQSV12ITzpZuDRzkl30SE7RTPKdewhxCRUA-RGO7eNI&s=10" alt="Foto 1">
                 <h3>Disco de Newton</h3>
                 <p>Nesse projeto fizemos um disco colorido chamado de disco de Newton, os desfios dele foram na produção don disco na parte de colorir e colar ele, fazer o furo no meio que no processo acabamos perdendo um discos, porem na programação do projeto foi bem simples sem ter nenhumk desafio perceptivel, esse disco tinha como objetivo girar em alta velocidade gerando uma junção das cores tornando todas uma só, oque acabou fazendo uma pequena mistura mais não como esperado pois o "motor" não era forte o suficiente parav girar em alta velocidade</p>
+                <h4>codigo:</h4>
+                <p>"// Gerado por mBlock5 para Robótica Paraná
+                    // Os códigos fazem você feliz!
+                    
+                    #include <Arduino.h>
+                    #include <Wire.h>
+                    #include <SoftwareSerial.h>
+                    
+                    int pinPot = A5;
+                    
+                    void _delay(float seconds) {
+                    long endTime = millis() + seconds * 1000;
+                    while(millis() < endTime) _loop();
+                    }
+                    
+                    void setup() {
+                    pinMode(6,OUTPUT);
+                    while(1) {
+                    analogWrite(6,map(analogRead(pinPot),0,1023,0,255));
+                    
+                    _loop();
+                    }
+                    
+                    }
+                    
+                    void _loop() {
+                    }
+                    
+                    void loop() {
+                    _loop();
+                    }"</p>
             </div>
 
             <div class="card-foto">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHsxbUW49lQV1R2Sc4VNdNu-17iWNhSQtF1LEIvgr4ag&s=10" alt="Foto 2">
                 <h3>Arco-íris</h3>
                 <p>Nesse projeto fizemos um led que girando o potenciometro causava a mudança de cor do led para 7 opções, tivemos algumas dificuldades na parte da montagem e tivemos que desfazer e remontar cada parte do projeto pois um dos nossos membros do grupo acabou desmontando o projeto de uma aula pra outra mesmo a gente indo usa-lo na aula seguinte, porem tirando isso não tivemos mais dificuldades com o projeto </p>
+                <h4>codigo:</h4>
+                <p>"void loop() {
+                    /* Mapeia o valor lido no potenciômetro (0 à 1023) para    */
+                    /* sete valores (1 à 7).                                   */
+                    Pot = map(analogRead(Pin_pot), 0, 1023, 1, 7);
+                  /* Se o modelo do LED é cátodo comum, faça...                */
+                
+                      }
+                      /* Se o valor de Pot for igual a 6, acenda ANIL          */
+                      if (Pot == 6) {
+                        /* Enviando o sinal PWM 180 no LED Vermelho.           */
+                        analogWrite(Led_R, 180);
+                        /* Enviando o sinal PWM 255 no LED Verde.              */
+                        analogWrite(Led_G, 255);
+                        /* Enviando o sinal PWM 125 no LED Azul.               */
+                        analogWrite(Led_B, 125);
+                      }
+                      /* Se o valor de Pot for igual a 7, acenda VIOLETA       */
+                      if (Pot == 7) {
+                        /* Enviando o sinal PWM 0 no LED Vermelho.             */
+                        analogWrite(Led_R, 0);
+                        /* Enviando o sinal PWM 255 no LED Verde.              */
+                        analogWrite(Led_G, 255);
+                        /* Enviando o sinal PWM 0 no LED Azul.                 */
+                        analogWrite(Led_B, 0);
+                      }
+                    }
+                  }"</p>
+                
             </div>
 
             <div class="card-foto">
                 <img src="https://arduinoecia.com.br/wp-content/uploads/2014/06/Circuito_Sensor_PIR-1024x669.png" alt="Foto 3">
                 <h3>Sensor de Movimento e Presença</h3>
                 <p>Nesse projeto fizemos um sensor que toda vez que detecta algum movimento o led liga, nele não tivemos nenhum desafio nem na montagem nem na programação, pois na programação o código era bem pequeno e simples, e a montagem usou bem poucas coisas fazendo tudo nele ser bem simples de ser feito</p>
+                <h4>codigo:</h4>
+                <p><p>"void loop()
+                    {
+                       /* Se o Sensor detectar movimento, faz...                 */
+                      if (digitalRead(Pino_Sensor) == HIGH) {
+                        /* Ligue o LED.                                         */
+                        digitalWrite(Pino_LED, HIGH);
+                        /* Permanece com o LED ligado por 5 segundos.           */
+                        delay(5000);
+                        /* Senão...                                             */
+                      } else {
+                        /* Mantém o LED desligado.                              */
+                        digitalWrite(Pino_LED, LOW);
+                      }
+                      /* Pequena pausa para retomar o monitoramento.            */
+                      delay(100);
+                    }"</p></p>
             </div>
             <div class="card-foto">
                 <img src="https://media.sketchfab.com/models/2d61e2bd7d2743a5a85cee4c21c1df7b/thumbnails/4ed16df16c8b4ad98ecea17706a2e3a6/5ddd3d300dab41ee8e0249acc437841a.jpeg" alt="Foto 4">
@@ -65,11 +142,79 @@
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8YKhSPAfvorEiUeMumxp3O2uqfmxWVD-WXbHsXZjNMEASBSnhiJHVK8wm&s=10" alt="Foto 5">
                 <h3>Semafaro De Cruzamento</h3>
                 <p>Nesse projeto fizemos um semafaro de cruzamento, quando o led fica verde da rua 1 liga o led vermlho da rua 2 liga, e quando o led amarelo da rua 1 liga o led vermelho liga depois de 5 segundos ele desliga ai liga o led verde da rua 2 e liga o led vermelho da rua 1, não tivemos dificuldades nenhuma na programação ou na montagem</p>
+                <h4>codigo:</h4>
+                <p>"}
+                    void loop() {
+                      /* Primeiro estágio: Semáforo 1 ABERTO e Semáforo 2 FECHADO (5 segundos) */
+                      digitalWrite(LED_Vermelho_1, LOW);
+                      digitalWrite(LED_Amarelo_1, LOW);
+                      digitalWrite(LED_Verde_1, HIGH);
+                      digitalWrite(LED_Vermelho_2, HIGH);
+                      digitalWrite(LED_Amarelo_2, LOW);
+                      digitalWrite(LED_Verde_2, LOW);
+                      delay(5000);
+                      /* Segundo estágio: Semáforo 1 ATENÇÃO E Semáforo 2 FECHADO (3 segundos) */
+                      digitalWrite(LED_Vermelho_1, LOW);
+                      digitalWrite(LED_Amarelo_1, HIGH);
+                      digitalWrite(LED_Verde_1, LOW);
+                      digitalWrite(LED_Vermelho_2, HIGH);
+                      digitalWrite(LED_Amarelo_2, LOW);
+                      digitalWrite(LED_Verde_2, LOW);
+                      delay(3000);
+                      /* Terceiro estágio: Semáforo 1 Fechado e Semáforo 2 Aberto (5 segundos) */
+                      digitalWrite(LED_Vermelho_1, HIGH);
+                      digitalWrite(LED_Amarelo_1, LOW);
+                      digitalWrite(LED_Verde_1, LOW);
+                      digitalWrite(LED_Vermelho_2, LOW);
+                      digitalWrite(LED_Amarelo_2, LOW);
+                      digitalWrite(LED_Verde_2, HIGH);
+                      delay(5000);
+                      /* Quarto estágio: Semáforo 1 FECHADO e Semáforo 2 ATENÇÃO (3 segundos) */
+                      digitalWrite(LED_Vermelho_1, HIGH);
+                      digitalWrite(LED_Amarelo_1, LOW);
+                      digitalWrite(LED_Verde_1, LOW);
+                      digitalWrite(LED_Vermelho_2, LOW);
+                      digitalWrite(LED_Amarelo_2, HIGH);
+                      digitalWrite(LED_Verde_2, LOW);
+                      delay(3000);
+                    }"</p>
             </div>
             <div class="card-foto">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRImllvi6NrzPKNavEXsAMf_QCeysCmsjiARp8Scj8aCg&s=10" alt="Foto 6">
                 <h3>Led RGB</h3>
                 <p>Nesse projeto fizemos um Led RGB alterar para varias cores, tivemos dificuldades na montagem mais não foi grande coisa, a programação não teve dificuldade</p>
+                <h4>codigo:</h4>
+                <p>""void loop() {
+                    /* Armazena os dados do potenciômetro na variável Pot. */
+                    Pot = analogRead(Pin_pot);
+                    /* Se Pot estiver entre 0 e 341, faça... */
+                    if (Pot >= 0 && Pot <= 341) {
+                    /* Ligue o LED Vermelho. */
+                    digitalWrite(Led_R, ligar);
+                    /* Senão... */
+                    } else {
+                    /* Desligue o LED Vermelho. */
+                    digitalWrite(Led_R, desligar);
+                    }
+                    /* Se Pot estiver entre 342 e 682, faça... */
+                    if (Pot >= 342 && Pot <= 682) {
+                    /* Ligue o LED Verde. */
+                    digitalWrite(Led_G, ligar);
+                    /* Senão... */
+                    } else {
+                    /* Desligue o LED Verde. */
+                    digitalWrite(Led_G, desligar);
+                    }
+                    /* Se Pot estiver entre 686 e 1023, faça... */
+                    if (Pot >= 683 && Pot <= 1023) {
+                    /* Ligue o LED Azul. */
+                    digitalWrite(Led_B, ligar);
+                    /* Senão... */
+                    } else {
+                    /* Desligue o LED Azul. */
+                    digitalWrite(Led_B, desligar);
+                    }
+                    }</p>
             </div>
         </div>
     </section>
